@@ -1,10 +1,6 @@
 # Site Pessoal - Portfólio Particular
 
-Bem-vindo ao meu portfólio! Aqui você encontrará projetos desenvolvidos com paixão e dedicação, utilizando as linguagens JavaScript, HTML e CSS para criar interfaces atraentes e funcionais.
-
-## Sobre Mim
-
-Sou Renan Mestre, apaixonado por desenvolvimento  web, sempre buscando aprimorar minhas habilidades e entregar soluções criativas para problemas reais, tabém sou um desenvolvedor de segurança em softwares, protegendo assim os serviçoes de uma grande empresa de cibercriminosos e garantindo que os dados sejam guaradados em segurança. Meu foco é ter experiências que combinem a programação com o monitoramento/segurança.
+Bem-vindo ao meu portfólio! Aqui você conhecerá minha trejetória profissional, qualificações, e projetos desenvolvidos.
 
 ## Tecnologias Utilizadas
 
@@ -48,14 +44,5 @@ cd portfolio
 │   ├── pastas
 └── README.md        # Documentação
 ```
-
-## Contato
-
-Se quiser conversar ou colaborar em projetos, fique à vontade para me contatar:
-
-- **Email**: renanmestre2006@proton.me
-- **Instagram**: [(https://www.instagram.com/remestre_devsec/)](https://www.instagram.com/remestre_devsec/)
-- **LinkedIn**: [linkedin.com/in/renanmestre](https://linkedin.com/in/renanmestre)
-- **GitHub**: [github.com/renanmestre](https://github.com/renanmestre)
 
 Obrigado por visitar meu portfólio! :rocket:
