@@ -7,6 +7,7 @@ Bem-vindo ao meu portfólio! Aqui você conhecerá minha trejetória profissiona
 - **HTML**: Estruturação e semântica do conteúdo.
 - **CSS**: Estilização responsiva e design criativo.
 - **JavaScript**: Funcionalidades dinâmicas e interativas.
+- **Segurança**: O site utiliza segurança https por meio da hospedagem no github, passa por atualizações contantes tanto de segurança quanto de conteúdo e procura manter sua estrutura padrão. 
 
 ## Recursos do Portfólio
 
