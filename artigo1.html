@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Security</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ícones FontAwesome para cadeado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            color: #e0e0e0;
+            background: radial-gradient(ellipse at top left, #0f172a 60%, #1e293b 100%), 
+                        linear-gradient(135deg, #10b98122 0%, #2563eb22 100%);
+            background-blend-mode: overlay;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: 
+                repeating-linear-gradient(120deg, #10b98111 0 2px, transparent 2px 40px),
+                repeating-linear-gradient(60deg, #2563eb11 0 2px, transparent 2px 40px);
+            opacity: 0.25;
+            z-index: 0;
+        }
+        .article-container {
+            background: linear-gradient(120deg, #23272a 70%, #1e293b 100%);
+            max-width: 760px;
+            margin: 56px auto 32px auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(16,185,129,0.10), 0 2px 8px rgba(37,99,235,0.10);
+            padding: 54px 38px 38px 38px;
+            position: relative;
+            z-index: 1;
+            border: 2px solid #10b98133;
+            word-break: break-word;
+        }
+        .article-container .lock-icon {
+            font-size: 2.5rem;
+            color: #10b981;
+            background: #1e293b;
+            border-radius: 50%;
+            padding: 0.7rem 0.9rem;
+            box-shadow: 0 2px 12px #10b98122;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 2.4rem;
+            color: #10b981;
+            font-weight: 800;
+            margin-top: 0.2em;
+            margin-bottom: 0.7em;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            justify-content: center;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #38bdf8;
+            font-weight: 700;
+            margin-top: 2.2em;
+            margin-bottom: 0.5em;
+        }
+        h3 {
+            font-size: 1.15rem;
+            color: #67e8f9;
+            font-weight: 700;
+            margin-top: 1.7em;
+            margin-bottom: 0.4em;
+        }
+        p, ul, ol {
+            font-size: 1.08rem;
+            line-height: 2.1;
+            margin: 0 0 1.3em 0;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+        }
+        a {
+            color: #38bdf8;
+            text-decoration: underline;
+            transition: color 0.2s;
+            word-break: break-all;
+        }
+        a:hover {
+            color: #10b981;
+        }
+        code, pre {
+            font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+            font-size: 1em;
+        }
+        pre {
+            background: linear-gradient(90deg, #0f172a 80%, #1e293b 100%);
+            color: #e0e0e0;
+            border-radius: 8px;
+            padding: 1.1em 1em 1em 1em;
+            margin-bottom: 1.2em;
+            overflow-x: auto;
+            position: relative;
+            border: 1.5px solid #10b98133;
+            box-shadow: 0 2px 12px #10b98111;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: linear-gradient(90deg, #10b981 60%, #2563eb 100%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 4px 14px;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            z-index: 2;
+            font-weight: 600;
+            box-shadow: 0 2px 8px #10b98122;
+        }
+        .copy-btn:hover {
+            background: linear-gradient(90deg, #2563eb 60%, #10b981 100%);
+            color: #fff;
+        }
+        hr {
+            border: none;
+            border-top: 1.5px solid #38bdf8;
+            margin: 2.5em 0 2em 0;
+            opacity: 0.5;
+        }
+        strong, b {
+            color: #10b981;
+        }
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .article-container {
+                padding: 32px 10px 28px 10px;
+            }
+            h1 { font-size: 2rem; }
+        }
+        @media (max-width: 600px) {
+            .article-container {
+                padding: 12vw 2vw 8vw 2vw;
+                margin: 18px 0 12px 0;
+                border-radius: 10px;
+            }
+            h1 { font-size: 1.3rem; flex-direction: column; gap: 0.2rem; }
+            h2 { font-size: 1rem; }
+            h3 { font-size: 0.95rem; }
+            pre { font-size: 0.93em; }
+            .article-container .lock-icon { font-size: 1.5rem; padding: 0.4rem 0.5rem; }
+            .copy-btn { top: 6px; right: 8px; padding: 3px 10px; font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <span class="lock-icon"><i class="fas fa-lock"></i></span>
+        <h1><i class="fas fa-shield-alt"></i> Artigo - Java Security</h1>
+        <h2>Segurança em códigos</h2>
+        <p>
+            Sistemas com <strong>segurança cibernética</strong> são fundamentais atualmente. O uso de IA para burlar sistemas cresceu rapidamente, com criação em massa de malwares, pequenas mudanças de scripts, vazamento de dados, direcionamento de usuários a sites falsos, ataques de força bruta e phishing. Isso gera desconfiança até em sites antes considerados confiáveis. Por isso, desenvolvedores precisam integrar <b>segurança</b> em seus serviços desde o início, garantindo <b>disponibilidade</b>, <b>autenticidade</b> e <b>integridade</b> dos dados — os três pilares da cibersegurança. Este artigo mostra ataques comuns, como são executados no frontend para prejudicar o backend, e apresenta soluções para minimizar riscos.
+        </p>
+        <h2>Linguagem Java e suas aplicações</h2>
+        <p>
+            Java é uma excelente ferramenta para desenvolvimento, com bibliotecas voltadas à <b>segurança</b> e tradição em sistemas robustos. Bancos, emissoras, softwares desktop e aplicativos mobile usam Java, tornando essencial a integração de segurança nesses produtos. Apesar de suas vulnerabilidades, Java conta com uma comunidade ativa e recursos atualizados para o mercado atual.
+        </p>
+        <h2>Ameaças de código</h2>
+        <h3>Injeção SQL</h3>
+        <p>
+            A <b>injeção SQL</b> é um ataque onde o invasor insere comandos maliciosos no banco de dados para obter acesso não autorizado. Exemplo de código vulnerável:
+        </p>
+        <div style="position:relative;">
+            <button class="copy-btn" data-target="code1">Copiar</button>
+            <pre id="code1"><code>public static Usuario usuarioid(String idUsuario) throws SQLException {
+    String sql = "SELECT * FROM usuario WHERE id = " + idUsuario;
+    Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/login", "root", "");
+    PreparedStatement statement = conexao.prepareStatement(sql);
+    ResultSet rs = statement.executeQuery();
+}</code></pre>
+        </div>
+        <p>
+            O problema é a falta de filtragem dos dados inseridos, permitindo que caracteres especiais sejam usados em ataques.
+        </p>
+        <h3>Injeção SQL Booleana</h3>
+        <p>
+            O atacante pode inserir <code>OR 1=1--</code> para manipular a consulta:
+        </p>
+        <div style="position:relative;">
+            <button class="copy-btn" data-target="code2">Copiar</button>
+            <pre id="code2"><code>SELECT * FROM tabela_login WHERE email = 1 OR 1=1 AND senha = 1 OR 1=1</code></pre>
+        </div>
+        <p>
+            Como <code>1=1</code> é sempre verdadeiro, o atacante consegue acesso sem credenciais válidas.
+        </p>
+        <h3>Injeção SQL com temporizador</h3>
+        <p>
+            Ataques que usam funções como <code>SLEEP()</code> podem deixar o servidor lento:
+        </p>
+        <div style="position:relative;">
+            <button class="copy-btn" data-target="code3">Copiar</button>
+            <pre id="code3"><code>Login -> 1 + SLEEP(4)
+Senha -> 1 + SLEEP(4)
+
+SELECT * FROM login WHERE email=1 + SLEEP(4) AND senha=1 + SLEEP(4)</code></pre>
+        </div>
+        <p>
+            O sistema fica "congelado", prejudicando o desempenho do servidor.
+        </p>
+        <h3>Injeção SQL em erro</h3>
+        <p>
+            Mensagens de erro detalhadas podem revelar informações sensíveis sobre o banco de dados e a linguagem utilizada, facilitando ataques.
+        </p>
+        <h2>Solução</h2>
+        <p>
+            Sempre higienize as entradas de dados. Use <b>consultas parametrizadas</b> para evitar injeção de SQL, conforme recomendado pela <b>OWASP</b>:
+        </p>
+        <div style="position:relative;">
+            <button class="copy-btn" data-target="code4">Copiar</button>
+            <pre id="code4"><code>String sql = "SELECT * FROM login WHERE email = ? AND senha = ?";
+Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/login_exemplo", "root", "");
+PreparedStatement prepaState = conexao.prepareStatement(sql);
+prepaState.setString(1, Email);
+prepaState.setString(2, Senha);
+ResultSet rs = prepaState.executeQuery();</code></pre>
+        </div>
+        <p>
+            O uso de <code>PreparedStatement</code> protege contra ataques de injeção SQL.
+        </p>
+        <h2>Proteção contra XSS</h2>
+        <p>
+            O ataque <b>XSS</b> insere scripts maliciosos em sites legítimos. Ao clicar em elementos manipulados, o usuário pode ser direcionado a páginas falsas que coletam informações pessoais ou realizam phishing. Sempre valide e escape os dados exibidos ao usuário.
+        </p>
+        <hr>
+        <p>
+            <strong>Referências:</strong><br>
+            <a href="https://medium.com/@fabio.alvaro/top-10-owasp-explicados-sql-injection-3baba37e2eb5" target="_blank">Top 10 OWASP explicados: SQL Injection</a><br>
+            <a href="https://www.devmedia.com.br/sql-injection-em-ambientes-web/9733" target="_blank">SQL Injection em ambientes web</a><br>
+            <a href="https://www.dio.me/articles/seguranca-no-desenvolvimento-web-com-java-b369b31d915c" target="_blank">Segurança no desenvolvimento web com Java</a>
+        </p>
+    </div>
+    <script>
+        // Botão copiar para todos os blocos de código
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const codeId = btn.getAttribute('data-target');
+                const code = document.getElementById(codeId).innerText;
+                navigator.clipboard.writeText(code);
+                btn.innerText = 'Copiado!';
+                setTimeout(() => btn.innerText = 'Copiar', 1200);
+            });
+        });
+    </script>
+</body>
+</html>

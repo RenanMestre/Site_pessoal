@@ -1,694 +1,603 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <title>Renan Mestre</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-
-  <!-- Favicons -->
-  <link href="img/Icone.png" rel="icon">
-  <link href="img/Icone.png" rel="apple-touch-icon">
-
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: Renan Mestre
-    Theme URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-    Author: Renan Mestre
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio Profissional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<body class="antialiased">
 
-<body id="page-top">
-
-  <!--/ Nav Star /-->
-  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll" href="#page-top">Renan Mestre</a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
-        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll active" href="#home">Início</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">Sobre mim</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#service">Serviços</a>
-          </li>
-          <!--
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#work">Work</a>
-          </li>
-          -->
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#blog">Postagens</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">Contato</a>
-          </li>
-        </ul>
-      </div>
+    <!-- Overlay de Carregamento -->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
     </div>
-  </nav>
-  <!--/ Nav End /-->
 
-  <!--/ Intro Skew Star /-->
-  <div id="home" class="intro route bg-image" style="background-image: url(img/Blue\ Modern\ Technology\ LinkedIn\ Banner.png)">
-    <div class="overlay-itro"></div>
-    <div class="intro-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="intro-title mb-4">Renan Mestre</h1>
-          <p class="intro-subtitle"><span class="text-slider-items"> DevSecOps/DevOps, Analista SOC, Analista Red team, Analista Blue team, Desenvolvedor Web, Desenvolvedor Cloud</span><strong class="text-slider"></strong></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+    <!-- Header e Navegação -->
+    <header class="bg-gray-950 text-white p-4 shadow-xl fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center max-w-7xl">
+            <div class="text-3xl font-extrabold text-green-400">Renan Mestre</div>
+            <!-- Botão hamburguer SEM md:hidden -->
+            <button id="menu-toggle" class="text-2xl p-2 rounded-md hover:bg-gray-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Remover ou comentar o menu desktop -->
+            <!-- <ul id="desktop-nav" class="hidden md:flex space-x-12 text-lg"> ... </ul> -->
+        </nav>
+        <!-- Mobile/Overlay Menu permanece igual -->
+        <div id="mobile-menu" class="fixed inset-0 bg-gray-950 z-40 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col items-center justify-center space-y-8">
+            <ul class="flex flex-col items-center space-y-8 text-2xl">
+                <li><a href="#sobre-mim" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-user nav-link-icon"></i>Sobre Mim</a></li>
+                <li><a href="#habilidades-tecnicas" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-chart-bar nav-link-icon"></i>Habilidades Técnicas</a></li>
+                <li><a href="#habilidades" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-cogs nav-link-icon"></i>Habilidades</a></li>
+                <li><a href="#experiencias" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-briefcase nav-link-icon"></i>Experiências</a></li>
+                <li><a href="#feedback" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-comments nav-link-icon"></i>Feedback</a></li>
+                <li><a href="#artigos" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-book-open nav-link-icon"></i>Artigos</a></li>
+                <li><a href="#sites" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-globe nav-link-icon"></i>Sites</a></li>
+                <li><a href="#contato" class="nav-link hover:text-green-400 transition duration-300 font-medium"><i class="fas fa-envelope nav-link-icon"></i>Contato</a></li>
+            </ul>
+            <button id="close-menu" class="absolute top-4 right-4 text-4xl text-white hover:text-green-400 transition duration-300 focus:outline-none">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-      </div>
-    </div>
-  </div>
-  <!--/ Intro Skew End /-->
+    </header>
 
-  <section id="about" class="about-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="box-shadow-full">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="row">
-                  <div class="col-sm-6 col-md-5">
-                    <div class="about-img">
-                      <img src="img/Eu.jpg" class="img-fluid rounded b-shadow-a" alt="">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-7">
-                    <div class="about-info">
-                      <p><span class="title-s">Nome: </span> <span>Renan Mestre</span></p>
-                      <p><span class="title-s">Soft skills: </span> <span>Adaptativo, proativo, sempre disposto a ajudar e aprender algo novo, liderança, habilidades de comunicação em escrita e oralmente.</span></p>
-                      <p><span class="title-s">Email: </span> <span>renanmestre2006@proton.me</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="skill-mf">
-                  <p class="title-s">Habilidades</p>
-                  <span>Desenvolvimento de sistemas</span> <span class="pull-right">75%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Cibersegurança Blue team</span> <span class="pull-right">75%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Cibersegurança Red Team</span> <span class="pull-right">70%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Forense Digital</span> <span class="pull-right">50%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Windows</span> <span class="pull-right">85%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Linux</span> <span class="pull-right">65%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>OSINT</span> <span class="pull-right">80%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Informática</span> <span class="pull-right">90%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="about-me pt-4 pt-md-0">
-                  <div class="title-box-2">
-                    <h5 class="title-left">
-                      Sobre mim
-                    </h5>
-                  </div>
-                  <p class="lead">
-                    Olá! Prazer em conhecê-lo(a), meu nome é Renan Mestre e estou me especializando em cibersegurança com foco em Blue Team, DevSecOps e Red Team, 
-                    sempre procurando aprender mais e ampliar meu conhecimento.
-                </p>
-                <p class="lead">
-                    Eu comecei na TI como suporte técnico básico, fazendo serviços simples para amigos ou familiares, tanto em sistema operacional como em manutenção de hardware. 
-                    Depois, parti para a programação como desenvolvedor web, realizando novamente serviços simples, desenvolvendo sites sem integração de banco de dados, apenas frontend, 
-                    para professores, familiares e para mim mesmo. Alguns desses sites desenvolvidos por mim foram criados para solucionar problemas reais, tanto profissionais quanto pessoais. 
-                    Até hoje, continuo estudando desenvolvimento web e praticando esse conhecimento, procurando novos desafios. Porém, já estou me aprofundando mais em segurança, pois percebi 
-                    que minha área não é tanto desenvolvimento, mas sim manter, monitorar e fornecer a segurança necessária.
-                </p>
-                <p class="lead">
-                    Sou estudante de cibersegurança, hacker ético, analista de cibersegurança Blue Team, técnico em desenvolvimento de sistemas, eletroeletrônica e informática.
-                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <main class="pt-20"> <!-- Padding top para compensar o header fixo -->
 
-  <!--/ Section Services Star /-->
-  <section id="service" class="services-mf route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Serviços
-            </h3>
-            <p class="subtitle-a">
-              Quer me conhecer melhor?
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-monitor"></i></span>
+        <!-- Seção Hero / Sobre Mim (com foto circular no topo) -->
+        <section id="hero" class="relative bg-gradient-to-br from-gray-950 to-gray-900 text-white py-28 flex flex-col items-center justify-center min-h-screen-75 overflow-hidden section-animated">
+            <div class="absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://placehold.co/1920x1080/050505/1a1a1a?text=Background+Pattern');"></div>
+            <div class="relative z-10 text-center px-4">
+                <!-- Foto circular no topo -->
+                <img src="/img/Minha foto profissional 4.png" alt="Sua Foto de Perfil" class="rounded-full w-48 h-48 mx-auto mb-8 border-6 border-green-500 shadow-2xl object-cover transform transition-transform duration-500 hover:scale-105">
+                <h1 class="text-6xl font-extrabold mb-4 leading-tight">Olá, me chamo <span class="text-green-400">Renan Mestre</span></h1>
+                <p class="text-3xl font-light mb-10 text-gray-300">Eu sou <span id="animated-job-title" class="animated-text font-semibold text-green-400"></span></p>
+                <a href="#contato" class="button-primary text-xl font-bold inline-block">Vamos Conversar!</a>
             </div>
-            <div class="service-content">
-              <h2 class="s-title">Suporte Técnico</h2>
-              <p class="s-description text-center">
-                Atuei na minha escola de ensino médio como suporte técnico em trabalho voluntário por 2 anos, ajudando a resolver problemas e corrigir bugs. 
-                Atuo, até os dias de hoje, consertando computadores com foco em melhorar o desempenho, resolver problemas e garantir a segurança do usuário. 
-                Para isso, realizo atualizações de aplicativos, instalo antivírus e faço uma varredura em busca de qualquer arquivo corrompido.
-              </p>
-            </div>            
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-code"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Programação Web e Desktop com Segurança</h2>
-              <p class="s-description text-center">
-                Tenho 2 anos de estudo nessa área e estou atualmente no último semestre do curso técnico em Desenvolvimento de Sistemas. <br>
-                Durante esse período, aprendi a desenvolver softwares com medidas de segurança, como proteção contra SQL Injection em telas de login, higienizando os dados na entrada e criptografando informações, 
-                especialmente senhas, utilizando Java. Também adquiri conhecimento em administração de bancos de dados com MySQL, incluindo a criptografia de dados armazenados no backend e a inserção segura de dados em tabelas.
-              </p>
-            </div>            
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-locked"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Cibersegurança</h2>
-              <p class="s-description text-center">
-                Atualmente, estou me formando em Hacker Ético, Red Team, Blue Team e DevSecOps. Possuo um certificado da IBSEC em Analista SOC Essencial. <br> Descobri que meu nicho não é apenas desenvolver, 
-                mas também garantir a integridade, disponibilidade e autenticidade dos meus serviços, além de monitorá-los constantemente.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-ios-home"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Automação Predial e Segurança IoT</h2>
-              <p class="s-description text-center">
-                No SENAI, aprendi a automatizar uma casa inteira com Alexa e IoT. Com meu conhecimento de hacker ético, consigo unir esses dois campos e, além de automatizar uma residência, 
-                posso garantir a segurança desses dispositivos conectados, protegendo o cliente e contribuindo para um mundo mais seguro.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-ios-people"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Treinamento</h2>
-              <p class="s-description text-center">
-                Trabalhar com informática exige tempo e dedicação, não é algo tão simples, por isso, já participei e conduzi treinamentos em segurança cibernética e informática, 
-                com o objetivo de ajudar pessoas a resolverem problemas técnicos comuns e a se protegerem digitalmente.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-ios-infinite"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Inteligência Artificial</h2>
-              <p class="s-description text-center">
-                Usar IA é fundamental nos dias atuais. Por isso, aprendi a criar sites, usar IA para análise de dados, desenvolver agentes de IA, criar imagens, apresentações e slides. 
-                Durante esse processo, observei várias falhas na IA em diferentes aspectos. Esse conhecimento adquirido torna-se valioso no mundo cibernético, tanto para proteger a mim 
-                quanto outras pessoas, além de ajudar a identificar IA em diferentes contextos.
-              </p>
-            </div>
-          </div>
-        </div>        
-      </div>
-    </div>
-  </section>
-  <!--/ Section Services End /-->
+        </section>
 
-  <!--
-  <div class="section-counter paralax-mf bg-image" style="background-image: url(img/counters-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 col-lg-3">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ribbon-a"></i></span>
+        <!-- Seção Sobre Mim (com foto quadrada) -->
+        <section id="sobre-mim" class="py-28 px-6 bg-gray-900 text-gray-100 section-animated">
+            <div class="container mx-auto flex flex-col md:flex-row items-center gap-16 max-w-7xl">
+                <div class="md:w-1/3 flex justify-center">
+                    <!-- Foto quadrada -->
+                    <img src="/img/Minha foto profissional quadrada.png" alt="Sua Foto" class="rounded-2xl shadow-2xl border-4 border-green-500 object-cover w-full max-w-sm transform transition-transform duration-500 hover:scale-105">
+                </div>
+                <div class="md:w-2/3 text-center md:text-left">
+                    <h2 class="text-5xl font-bold text-green-400 section-title">Sobre Mim</h2>
+                    <p class="text-lg leading-relaxed mb-6 text-gray-300">
+                        Sou um profissional apaixonado por tecnologia, com uma sólida experiência acadêmica e em projetos de desenvolvimento web e um profundo interesse em segurança cibernética, participando ativamente em competições CTF (Competição de Cibersegurança (Capture The Flag)). Minha trajetória durante esses anos foi marcada pela busca contínua por inovação, foi graças a essa sede que me contrei em segurança cibernética, mais especificamente em Red Team (Time de invasão) e DevSecOps (Development, Security and Operation) onde pude me tornar um diferencial e não ser apenas um dev, mas ser DevSec ou SecOps, que consiste na integração de práticas de segurança em softwares, segurança em todas as etapas do ciclo de vida do desenvolvimento.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-300">
+                        Meu serviços são focados na criação de soluções eficientes, otimizáveis e seguras, sempre com um olhar atento à vulnerabilidades em códigos e design. Acredito que a segurança não está apenas aplicada a técnicas em softwares mas também ao que nós desenvolvemos, e, DevOps aprendi que a automação está para evitar imperfeição humana em erros de código e eficiencia, porque não desenvolver ferramentas de segurança automatizadas para o público afim de identificarem e saberem sobre os ataques? Esse é um dos meus objetivos em codificações, não apenas em fornecer a segurança, mas também em treinar a maturidade digital das pessoas. Estou sempre pronto para novos desafios que me permitam aplicar e expandir minhas competências.
+                    </p>
+                </div>
             </div>
-            <div class="counter-num">
-              <p class="counter">25</p>
-              <span class="counter-text">CERTIFICADOS</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
+        </section>
 
-  <!--/ Section Postagens /-->
-  <section id="work" class="portfolio-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Projetos
-            </h3>
-            <p class="subtitle-a">
-              Selecione qualquer um deles para ver mais detalhes!
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/Robótica.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/Robótica capa.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Robótica</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Eletrônica, treinamento</span> / <span class="w-date">18 dez. 2023</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
+        <!-- Nova Seção de Habilidades Técnicas (Gráficos de Barra 2D) -->
+        <section id="habilidades-tecnicas" class="py-28 px-6 bg-gray-950 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Habilidades Técnicas</h2>
+                <!-- Ícones de Ferramentas -->
+                <div class="tech-icon-container">
+                    <i class="fas fa-bug tech-icon" title="Pentest Web"></i>
+                    <i class="fas fa-file-alt tech-icon" title="Emissão e criação de relatórios técnicos"></i>
+                    <i class="fas fa-headset tech-icon" title="Criação de cCatbots"></i>
+                    <i class="fas fa-infinity tech-icon" title="DevOps"></i>
+                    <i class="fas fa-shield-alt tech-icon" title="Segurança cibernética"></i>
+                    <i class="fas fa-robot tech-icon" title="Machine Leaning e Deep Leaning"></i>
+                    <i class="fas fa-file-excel tech-icon" title="Excel"></i>
+                    <i class="fas fa-file-word tech-icon" title="Word"></i>
+                    <i class="fas fa-file-powerpoint tech-icon" title="PowerPoint"></i>
+                    <i class="fas fa-search tech-icon" title="Analise de código"></i>
+                    <i class="fas fa-eye tech-icon" title="Monitoramento"></i>
+                    <i class="fab fa-linux tech-icon" title="Linux"></i>
+                    <i class="fab fa-windows tech-icon" title="Windows"></i>
+                    <i class="fas fa-code tech-icon" title="FullStack"></i>
+                    <i class="fab fa-gitlab tech-icon" title="GitLab"></i>
+                    <i class="fab fa-github tech-icon" title="GitHub"></i>
+                    <i class="fab fa-js-square tech-icon" title="JavaScript"></i>
+                    <i class="fab fa-html5 tech-icon" title="HTML5"></i>
+                    <i class="fab fa-css3-alt tech-icon" title="CSS3"></i>
+                    <i class="fab fa-python tech-icon" title="Python"></i>
+                    <i class="fab fa-java tech-icon" title="Java"></i>
+                    <i class="fab fa-c tech-icon" title="Linguagem C"></i>
+                    <i class="fab fa-docker tech-icon" title="Docker"></i>
+                    <i class="fas fa-cloud tech-icon" title="Cloud Computing"></i>
+                    <i class="fas fa-brain tech-icon" title="IA"></i>
+                    <i class="fas fa-database tech-icon" title="Database"></i>
                 </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/Desafio de Ideias.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/Desafio de Ideias capa.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Desafio de Ideias 2024</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Desenvolvimento Web, Design Thinker</span> / <span class="w-date">18 jul. 2024</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/Desenvolvimento de softwares.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/Desenvolvimento de softwares capa.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Desenvolvimento de software em Java</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">FullStack</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <!--<a href="img/work-4.jpg" data-lightbox="gallery-mf">-->
-              <div class="work-img">
-                <!--<img src="img/work-4.jpg" alt="" class="img-fluid">-->
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Analista SOC (Em breve)</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">SOC</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <!--<a href="img/Título.png" data-lightbox="gallery-mf">-->
-              <div class="work-img">
-                <!--<img src="img/Título.png" alt="" class="img-fluid">-->
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Pentester (Em breve)</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Pentester</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/Figma.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/Figma capa.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Design</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Design, frontend</span> / <span class="w-date">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  <!--/ Section Portfolio End /-->
+            </div>
+        </section>
 
-  <!--/ Section Blog Star /-->
-  <section id="blog" class="blog-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Postagens
-            </h3>
-            <p class="subtitle-a">
-              Quer saber como você pode se manter protegido no mundo digital em que vivemos? No meu instagram eu posto conteúdos para se proteger contra ataques Phishing e até contra 
-              cibercriminosos que usam a IA para esconder seus rostos.
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <img src="img/Ataque phishing.png" alt="" class="img-fluid">
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Consientização de cibersegurança</h6>
+        <!-- Competências técnicas -->
+        <section id="competencias-tecnicas" class="py-28 px-6 bg-gray-950 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Competências</h2>
+                <div class="competencias-lista">
+                    <span class="competencia-badge">Hacker Ético</span>
+                    <span class="competencia-badge">Segurança da informação</span>
+                    <span class="competencia-badge">Desenvolvimento seguro de software</span>
+                    <span class="competencia-badge">Arquitetura de software e infra</span>
+                    <span class="competencia-badge">UI e UX</span>
+                    <span class="competencia-badge">DevOps / DevSecOps</span>
+                    <span class="competencia-badge">Pipelines de segurança para sistemas em produção</span>
+                    <span class="competencia-badge">Testes de invasão em sistemas</span>
+                    <span class="competencia-badge">Proteção de identidade digital</span>
+                    <span class="competencia-badge">Vulnerabilidades em rede</span>
+                    <span class="competencia-badge">Forense Digital</span>
+                    <span class="competencia-badge">Busca de pessoas e geolocalização web</span>
+                    <span class="competencia-badge">Dark Web</span>
+                    <span class="competencia-badge">Theet Hunter</span>
+                    <span class="competencia-badge">Desenvolvimento de IAs</span>
+                    <span class="competencia-badge">Desenvolvimento de Machine Learning</span>
+                    <span class="competencia-badge">Engenheiro de prompt</span>
+                    <span class="competencia-badge">Cloud Security - Oracle, Google e Azure</span>
+                    <span class="competencia-badge">AppSec</span>
+                    <span class="competencia-badge">Competitividade</span>
+                    <span class="competencia-badge">Proatividade</span>
+                    <span class="competencia-badge">Líder</span>
+                    <span class="competencia-badge">Comuncação</span>
+                    <span class="competencia-badge">Comprometimento</span>
+                    <span class="competencia-badge">Aprendizado contínuo</span>
                 </div>
-              </div>
-              <h3 class="card-title">Ataque Phishing</h3>
-              <p class="card-description">
-                Os ataques de phishing são os mais comuns e os mais utilizados. Muitas vezes, um simples link de um site confiável leva você para um site falso, e logo depois de inserir suas 
-                informações, você percebe que caiu em um golpe. Por isso, a conscientização sobre o que é e como se proteger é tão importante.
-              </p>              
             </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="https://www.instagram.com/remestre_devsec/">
-                  <span class="author">remestre_devsec</span>
-                </a>
-                <a href="https://www.linkedin.com/in/renan-mestre-468549275/">
-                  <span class="author">Renan Mestre</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <img src="img/Vídeo.png" alt="" class="img-fluid">
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Consientização de cibersegurança</h6>
-                </div>
-              </div>
-              <h3 class="card-title">IA aplicada a vídeoconferência</h3>
-              <p class="card-description">
-                2025 já está sendo conhecido como o ano da IA, porque agora as IAs não estão mais como antes, fáceis de identificar erros; estão cada vez mais difíceis de identificar. <br>Recentemente, 
-                os noticiários têm informado que até famosos estão tendo os rostos clonados para aplicar golpes, por isso, a conscientização sobre esse assunto se torna tão importante.
-              </p>              
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="https://www.instagram.com/remestre_devsec/">
-                  <span class="author">remestre_devsec</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <img src="img/Tecnologia da Informação.png" alt="" class="img-fluid">
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Codificação segura</h6>
-                </div>
-              </div>
-              <h3 class="card-title">DevSecOps e criptografia</h3>
-              <p class="card-description">
-                Nesta publicação, estou falando sobre os DevSecOps e sobre as diferentes criptografias disponíveis para guardar dados sensíveis.
-              </p>              
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="https://www.instagram.com/remestre_devsec/">
-                  <span class="author">remestre_devsec</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <img src="img/Hacker.png" alt="" class="img-fluid">
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Informações</h6>
-                </div>
-              </div>
-              <h3 class="card-title">Hacker</h3>
-              <p class="card-description">
-                O termo "hacker" é muito conhecido e popular, mas muitas pessoas não sabem o que significa nem a história real por trás desse nome.
-                A palavra "hacker" atualmente está manchada por conta de sua história não ser muito boa no começo, mas essa palavra continua tendo um grande significado até os dias atuais.
-              </p>              
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="https://www.instagram.com/remestre_devsec/">
-                  <span class="author">remestre_devsec</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Section Blog End /-->
+        </section>
 
-  <!--/ Section Contact-Footer Star /-->
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="contact-mf">
-            <div id="contact" class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="title-box-2 pt-4 pt-md-0">
-                    <h5 class="title-left">
-                      Entrar em contato
-                    </h5>
-                  </div>
-                  <div class="more-info">
-                    <p class="lead">
-                      Quer me conhecer mais ou me encontrar nas redes sociais?
-                      Então clique em um dos botões de rede ou mande um e-mail para mim. Será um prazer ajudar você ou compartilhar conhecimento!
-                    </p>                    
-                    <ul class="list-ico">
-                      <li><span class="ion-email"></span> renanmestre2006@proton.me</li>
-                    </ul>
-                  </div>
-                  <div class="socials">
-                    <ul>
-                      <li><a href="https://www.instagram.com/remestre_devsec/"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                      <li><a href="https://www.linkedin.com/in/renan-mestre-468549275/"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
-                      <li><a href="https://github.com/RenanMestre"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
-                    </ul>
-                  </div>
+        <!-- Seção Habilidades (Antiga, mantida para outros tipos de habilidades) -->
+        <section id="habilidades" class="py-28 px-6 bg-gray-900 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Minhas Habilidades</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+                    <!-- Exemplo de Habilidade -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-code text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-300">Desenvolvimento Web</h3>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-xs text-gray-300 space-y-1">
+                            <li>HTML5, CSS3, JavaScript.</li>
+                            <li>Node.js.</li>
+                            <li>MySQL.</li>
+                            <li>SQL.</li>
+                            <li>Python (Django / Flask).</li>
+                            <li>Java (API Spring Boot e Spring Security).</li>
+                            <li>GET, POST e RESET.</li>
+                            <li>HTTPS e HTTPS.</li>
+                            <li>GitHub pages e Domínios.</li>
+                        </ul>
+                    </div>
+                    <!-- Adicione mais habilidades aqui -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-shield-alt text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-300">Segurança Cibernética</h3>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-xs text-gray-300 space-y-1">
+                            <li>Análise de Vulnerabilidades.</li>
+                            <li>Forense digital.</li>
+                            <li>Testes de Penetração (Pentest).</li>
+                            <li>Malwares.</li>
+                            <li>Python e Bash para automatização de segurança.</li>
+                            <li>Engenharia social - técnicas de campanha e defesa.</li>
+                            <li>Segurança de Redes e Aplicações.</li>
+                            <li>DevSecOps.</li>
+                            <li>Theat Hunter.</li>
+                            <li>Dark Web.</li>
+                            <li>OSINT.</li>
+                            <li>Blue Team (Segurança Defensiva).</li>
+                            <li>Red Team (Segurança Ofensiva).</li>
+                            <li>Ferramentas de monitoramento SIEM.</li>
+                            <li>Monitoramento de redes.</li>
+                            <li>Cloud Security.</li>
+                            <li>IoT Security.</li>
+                            <li>IA Security.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-tools text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-300">DevSecOps</h3>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-xs text-gray-300 space-y-1">
+                            <li>GitLab CI/CD.</li>
+                            <li>GitHub Action.</li>
+                            <li>IaC Infraestrutura como código.</li>
+                            <li>Automação de Segurança.</li>
+                            <li>Ferramentas SAST/DAST/IAST.</li>
+                            <li>Contêineres e Orquestração (Docker, Kubernetes).</li>
+                            <li>Emissão de relatórios de vulnerabilidades.</li>
+                            <li>Cultura de desenvolvimento ágil.</li>
+                            <li>SonarQube, OWASP-10, Bandit, Grafana, Prometheus e ZAP.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-cloud text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-300">Cloud Computing</h3>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-xs text-gray-300 space-y-1">
+                            <li>Plataformas (Google Cloud, Azure, Oracle).</li>
+                            <li>Infraestrutura como Código (Terraform).</li>
+                            <li>Governança em ambientes cloud.</li>
+                            <li>SaaS, DaaS e IaaS.</li>
+                            <li>Gerenciamento de Custos em Nuvem.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-shield-alt text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-300">Desenvolvimento de sistema seguro</h3>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-xs text-gray-300 space-y-1">
+                            <li>Java.</li>
+                            <li>Python.</li>
+                            <li>MySQL.</li>
+                            <li>Automações de segurança.</li>
+                            <li>Segurança da informação / DevSecOps / AppSec.</li>
+                            <li>Análise de brechas e informações em código.</li>
+                            <li>Criptografia e ofuscação de código.</li>
+                            <li>Simulação de ataques cibernéticos.</li>
+                            <li>Pentest.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-shield-alt text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-300">IA - Deep Learning e Machine Learning</h3>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-xs text-gray-300 space-y-1">
+                            <li>Agentes de IA.</li>
+                            <li>ChatBot.</li>
+                            <li>Filtros de IA para segurança.</li>
+                            <li>Análise de imagens.</li>
+                            <li>Implantação de IA em nuvem - Microsoft.</li>
+                            <li>Engenheiro de prompt.</li>
+                            <li>Produtividade em codificações com IA.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="copyright-box">
-              <p class="copyright">&copy; Desenvolvido por <strong>Renan Mestre</strong>. Códigos detalhados e explicados</p>
-              <div class="credits">
-                <!--
-                  All the links in the footer should remain intact.
-                  You can delete the links only if you purchased the pro version.
-                  Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
-                -->
-                Hospeado no <a href="https://github.com/RenanMestre/Site_pessoal">Github</a>
-              </div>
+        </section>
+
+        <!-- Seção Experiências -->
+        <section id="experiencias" class="py-28 px-6 bg-gray-900 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Minhas Experiências</h2>
+                <div class="space-y-14">
+                    <!-- Exemplo de Experiência 1 -->
+                    <div class="bg-gray-800 p-10 rounded-xl shadow-xl border border-gray-700 card-hover-effect">
+                        <h3 class="text-3xl font-semibold mb-4 text-green-300">Suporte Técnico</h3>
+                        <p class="text-xl font-medium text-gray-400 mb-2">Ensino Médio</p>
+                        <p class="text-lg leading-relaxed text-gray-400 mb-6">Janeiro 2022 - Dezembro 2024</p>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-3xl text-gray-300 space-y-2">
+                            <p>Durante dois anos no ensino médio, fui conhecido por ser o cara da TI, sendo requisitado para cuidar de sala de informática, organizar a sala e auxiliar em manutenções de sistema operacional. <br>Alguns docentes ainda me pediam para editar vídeos, apresentações, auxiliá-los em projetos tecnológicos e muito mais.</p>
+                            <li>Sistema Operacional Windows 10.</li>
+                            <li>Conexão de Rede.</li>
+                            <li>Colaboração e trabalho em equipe.</li>
+                            <li>Canva paracriação de apresentações e CapCut para edição de vídeos.</li>
+                            <li>Auxilio em erros de notebook.</li>
+                            <li>Suporvisor de informática enquanto o professor não estava na sala.</li>
+                        </ul>
+                    </div>
+                    <!-- Exemplo de Experiência 2 -->
+                    <div class="bg-gray-800 p-10 rounded-xl shadow-xl border border-gray-700 card-hover-effect">
+                        <h3 class="text-3xl font-semibold mb-4 text-green-300">Desafio de Ideias</h3>
+                        <p class="text-xl font-medium text-gray-400 mb-2">Senai Humberto Reis Costa</p>
+                        <p class="text-lg leading-relaxed text-gray-400 mb-6">Outubro 2024 - Junho 2025</p>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-3xl text-gray-300 space-y-2">
+                            <p>Durante essa competição exerci atividade consideradas diferenciais da minha formação de elétrica que foi o desenvolvimento web, dessa forma aperfeiçoei e conheci novas ferramentas voltadas a segurança e desenvolvimento contínuo aumentando meu desempenho na competição e diminuindo meu tempo de codar.</p>
+                            <li>Desenvolvimento web.</li>
+                            <li>HTML5, CSS3, JS, Bootstrap, Python, Agentes de IA.</li>
+                            <li>Pipelines de segurança, Cloud, Grafana e Prometheus.</li>
+                            <li>Resolução de problemas com integração tecnológica.</li>
+                            <li>Segurança cibernética.</li>
+                            <li>DevSecOps / DevOps.</li>
+                            <li>Modelagem 3D.</li>
+                            <li>Apresentações e edições em Canva e PPTX.</li>
+                            <li>Engenharia de prompt.</li>
+                            <li>IAs LLMs.</li>
+                            <li>Design Thinker.</li>
+                            <li>Resolução de problemas.</li>
+                            <li>Metodologia Ágil.</li>
+                            <li>Apresentações e falar em público.</li>
+                            <li>Liderança.</li>
+                            <li>Design.</li>
+                            <li>Trabalho em equipe e adaptação.</li>
+                        </ul>
+                    </div>
+                    <!-- Exemplo de Experiência 2 -->
+                    <div class="bg-gray-800 p-10 rounded-xl shadow-xl border border-gray-700 card-hover-effect">
+                        <h3 class="text-3xl font-semibold mb-4 text-green-300">Desenvolvimento Frontend</h3>
+                        <p class="text-xl font-medium text-gray-400 mb-2">Autônomo</p>
+                        <p class="text-lg leading-relaxed text-gray-400 mb-6">Junho 2025 - Momento></p>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-3xl text-gray-300 space-y-2">
+                            <li>HTML5, CSS3 e JS.</li>
+                            <li>Desenvolvimento de sites responsivos.</li>
+                            <li>Integração com APIs.</li>
+                            <li>Segurança cibernética</li>
+                            <li>DevSecOps</li>
+                            <li>Microserviços</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-10 rounded-xl shadow-xl border border-gray-700 card-hover-effect">
+                        <h3 class="text-3xl font-semibold mb-4 text-green-300">Hacker Ético</h3>
+                        <p class="text-xl font-medium text-gray-400 mb-2">Acadêmico - Laboratórios - Competições</p>
+                        <p class="text-lg leading-relaxed text-gray-400 mb-6">Setembro 2025 - Momento</p>
+                        <ul class="list-disc list-inside text-left mx-auto max-w-3xl text-gray-300 space-y-2">
+                            <li>Pentest web.</li>
+                            <li>Injeção SQL, ataque XSS, DDoS e Homem do Meio.</li>
+                            <li>Análise de vulnerabilidades em roteadores.</li>
+                            <li>Segurança em navegação e autonomia.</li>
+                            <li>Localizando pessoas desaparecidas.</li>
+                            <li>Análise Phishing.</li>
+                            <li>Criação e detenção de malwares.</li>
+                            <li>Puxando e coletando dados em código aberto (OSINT).</li>
+                            <li>Forense digital, coletando dados escondidos em imagens e dados apagados.</li>
+                            <li>Localizando vulnerabilidades e dados em códigos.</li>
+                            <li>Automações em Python e Bash.</li>
+                            <li>Linux.</li>
+                            <li>Criptografias e Hashs.</li>
+                            <li>Competição CTF 2024 - IA descontrolada.</li>
+                            <li>Competição CTF 2024 - "Uma ameaça passiva" Palestra - Google<br>A palestra foi voltado pro grupo especializado em DevSecOps sobre ameaças ofuscadas em códigos.</li>
+                            
+                        </ul>
+                    </div>
+                    <!-- Adicione mais experiências aqui -->
+                </div>
             </div>
-          </div>
+        </section>
+
+        <!-- Seção Feedback de Clientes -->
+        <!-- Seção Feedback de Clientes
+        <section id="feedback" class="py-28 px-6 bg-gray-950 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Feedback de Clientes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    Feedback 1
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-quote-left text-4xl text-green-400 mb-4"></i>
+                        <p class="text-lg italic leading-relaxed mb-6 text-gray-300">"O [Seu Nome] transformou nossa visão em realidade com um site que superou todas as expectativas. Sua atenção aos detalhes e profissionalismo são incomparáveis."</p>
+                        <p class="font-semibold text-green-300 text-xl">- Ana Clara, CEO da Inovatech</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-quote-left text-4xl text-green-400 mb-4"></i>
+                        <p class="text-lg italic leading-relaxed mb-6 text-gray-300">"A expertise do [Seu Nome] em segurança foi fundamental para blindar nossos sistemas. Ele é um verdadeiro especialista em DevSecOps!"</p>
+                        <p class="font-semibold text-green-300 text-xl">- Bruno Silva, CTO da SecureCorp</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-quote-left text-4xl text-green-400 mb-4"></i>
+                        <p class="text-lg italic leading-relaxed mb-6 text-gray-300">"Trabalhar com [Seu Nome] foi uma experiência excelente. Sua capacidade de resolver problemas complexos e entregar resultados de alta qualidade é notável."</p>
+                        <p class="font-semibold text-green-300 text-xl">- Carla Mendes, Gerente de Projetos</p>
+                    </div>
+     
+                </div>
+            </div>
+        </section>-->
+
+        <!-- Seção Artigos Desenvolvidos -->
+        <section id="artigos" class="py-28 px-6 bg-gray-900 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Artigos Desenvolvidos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Artigo: Java Security -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-newspaper text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Java Security</h3>
+                        <p class="text-gray-400 leading-relaxed mb-5">Você é programador Java? Eu também, mas como os sitemas produzidos podem ser robustos em camadas de proteção? Conheça os ataques comuns e comesse a se tornar um DevSec.</p>
+                        <a href="/artigo1.html" target="_blank" class="button-secondary inline-block text-base font-medium">Ler Artigo <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                    <!-- Artigo: Protegendo formulários
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <i class="fas fa-lock text-5xl text-green-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Protegendo formulários web</h3>
+                        <p class="text-gray-400 leading-relaxed mb-5">As melhores práticas e um checklist detalhado para garantir a segurança de suas aplicações web.</p>
+                        <a href="/artigo2.html" target="_blank" class="button-secondary inline-block text-base font-medium">Ler Artigo <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>-->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sites Desenvolvidos Competição -->
+        <section id="sites" class="py-28 px-6 bg-gray-950 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Websites - Competição</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Exemplo de Site 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <img src="/img/Industrisoft.png" alt="Site Competição" class="rounded-lg mb-6 w-full h-56 object-cover shadow-md">
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Industrisoft - EXPOMAFE</h3>
+                        <h4 class="text-lg font-bold text-green-400 mt-2 mb-1 uppercase tracking-wide">DESAFIO</h4>
+                        <h4 class="text-base font-semibold text-green-200 mb-4">"Monitoramento ágil e sustentável"</h4>
+                        <p class="text-gray-400 leading-relaxed mb-5">Website desenvolvido para representar a ideia da equipe InovaTeam do Desafio de Ideias 2025 promovido pelo SENAI e com o apoio da EXPOMAFE. <br>Sistema desenvolvido em 3 noites seguidas fornecendo monitoramento completo, máquinas 3D, injeção de IA e seguindo práticas de Segurança Cibernética.</p>
+                        <a href="https://renanmestre.github.io/industrisoft/index.html" target="_blank" class="button-secondary inline-block text-base font-medium">Ver Site <i class="fas fa-external-link-alt ml-2"></i></a>
+                    </div>
+                    <!-- Exemplo de Site 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <img src="/img/Platodiesesoft.png" alt="Site Competição" class="rounded-lg mb-6 w-full h-56 object-cover shadow-md">
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Platosoft</h3>
+                        <h4 class="text-lg font-bold text-green-400 mt-2 mb-1 uppercase tracking-wide">DESAFIO</h4>
+                        <h4 class="text-base font-semibold text-green-200 mb-4">"Dificuldade na regulagem do platô"</h4>
+                        <p class="text-gray-400 leading-relaxed mb-5">Plataforma desenvolvida para monitoramento, gêmios digitais e coleta de feedbacks. Representa a solução da equipe Green Team.</p>
+                        <a href="https://renanmestre.github.io/platodisesoft/" target="_blank" class="button-secondary inline-block text-base font-medium">Ver Site <i class="fas fa-external-link-alt ml-2"></i></a>
+                    </div>
+                    <!-- Exemplo de Site 3 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <img src="/img/Equasoft.png" alt="Site Competição" class="rounded-lg mb-6 w-full h-56 object-cover shadow-md">
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Equasoft</h3>
+                        <h4 class="text-lg font-bold text-green-400 mt-2 mb-1 uppercase tracking-wide">DESAFIO</h4>
+                        <h4 class="text-base font-semibold text-green-200 mb-4">"Baixa luminosidade em ambientes."</h4>
+                        <p class="text-gray-400 leading-relaxed mb-5">Sistema para coleta de feedbacks de funcionários criado para a empresa do Desafio de Ideias 2024.</p>
+                        <a href="https://renanmestre.github.io/equasoft/" target="_blank" class="button-secondary inline-block text-base font-medium">Ver Site <i class="fas fa-external-link-alt ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sites desenvolvidos acadêmicos e profissionais -->
+        <section id="sites" class="py-28 px-6 bg-gray-950 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-7xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Websites - Organizações e acadêmicos</h2>
+                <div class="container mx-auto text-center max-w-7xl">
+                    <!--<div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=Sistema+de+Gestão+Empresarial" alt="Site Sistema de Gestão" class="rounded-lg mb-6 w-full h-56 object-cover shadow-md">
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Ariz Design</h3>
+                        <p class="text-gray-400 leading-relaxed mb-5">Quer presentear seu amigo?<br>Dar brinde aos seus clientes?<br>Funcionário<br>Namorado(a)<br><br>Acesse o site e faça seu pedido!</p>
+                        <a href="https://renanmestre.github.io/Neo3D/" target="_blank" class="button-secondary inline-block text-base font-medium">Ver Site <i class="fas fa-external-link-alt ml-2"></i></a>
+                    </div>-->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <img src="/img/Arcenal Hacker.png" alt="Site Sistema de Gestão" class="rounded-lg mb-6 w-full h-56 object-cover shadow-md">
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Arcenal Hacker</h3>
+                        <p class="text-gray-400 leading-relaxed mb-5">Plataforma desenvolvida para automatizar os processos de detecção de ataques hackers com a utilização de IA / Machine Learning. <br>Possuí ferramentas de segurança <br>jogos e quizes para racioncionar diante de alguns ataques hackers comuns<br>Avaliação de força de segurança em senha </p>
+                        <a href="https://phishing-vrjl.onrender.com/" target="_blank" class="button-secondary inline-block text-base font-medium">Ver Site <i class="fas fa-external-link-alt ml-2"></i></a>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=Sistema+de+Gestão+Empresarial" alt="Site Sistema de Gestão" class="rounded-lg mb-6 w-full h-56 object-cover shadow-md">
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">Site para sala de aula</h3>
+                        <p class="text-gray-400 leading-relaxed mb-5">Em 2024 minha sala estava com falta de comunicação grande, como representante desenvolvi por tempo limitado um sistema web afim de melhorar nossa comunicação e lembrar de compromissos como atividades online, provas e competições.</p>
+                        <a href="https://renanmestre.github.io/escola/" target="_blank" class="button-secondary inline-block text-base font-medium">Ver Site <i class="fas fa-external-link-alt ml-2"></i></a>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-xl card-hover-effect border border-gray-700">
+                        <img src="/img/I Love You.png" alt="Site Sistema de Gestão" class="rounded-lg mb-6 w-full h-56 object-cover shadow-md">
+                        <h3 class="text-2xl font-semibold mb-3 text-green-300">I love You!</h3>
+                        <p class="text-gray-400 leading-relaxed mb-5">Sistema desenvolvido com finalidade acadêmica apenas para testes de código e contribuição em código aberto. Mas mantenho em meu repositório me lembrando da criatividade tecnológica e forma de demonstrar meu amor não apenas em ações e palavras, mas também em códigos.</p>
+                        <a href="https://renanmestre.github.io/love-you/" target="_blank" class="button-secondary inline-block text-base font-medium">Ver Site <i class="fas fa-external-link-alt ml-2"></i></a>
+                    </div>
+                    <!-- Adicione mais sites aqui -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Formulário para Contato -->
+        <section id="contato" class="py-28 px-6 bg-gray-900 text-gray-100 section-animated">
+            <div class="container mx-auto text-center max-w-3xl">
+                <h2 class="text-5xl font-bold text-green-400 section-title">Entre em Contato</h2>
+                <p class="text-lg leading-relaxed text-gray-300 mb-10">Estou sempre aberto para novas oportunidades de crescimento e colaborações em construções de código. <br>Entre em contato comigo para mais informações!</p>
+                <form class="bg-gray-800 p-10 rounded-xl shadow-2xl space-y-8 border border-gray-700" action="https://api.staticforms.xyz/submit" method="POST">
+                    <div class="flex flex-col md:flex-row md:space-x-6">
+                        <div class="flex-1">
+
+                            <label for="primeiro_nome" class="block text-left text-lg font-medium mb-3 text-gray-200">Primeiro nome</label>
+                            <input type="text" id="primeiro_nome" name="$primeiro_nome" maxlength="10" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-100 placeholder-gray-400" placeholder="Seu primeiro nome" required>
+                        
+                        </div>
+                        <div class="flex-1 mt-6 md:mt-0">
+
+                            <label for="sobrenome" class="block text-left text-lg font-medium mb-3 text-gray-200">Sobrenome</label>
+                            <input type="text" id="sobrenome" name="$sobrenome" maxlength="40" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-100 placeholder-gray-400" placeholder="Seu sobrenome" required>
+                        
+                        </div>
+                    </div>
+                    <div>
+
+                        <label for="email" class="block text-left text-lg font-medium mb-3 text-gray-200">Email</label>
+                        <input type="email" id="email" name="$email" maxlength="35" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-100 placeholder-gray-400" placeholder="seu.email@example.com" required>
+                   
+                    </div>
+                    <div>
+
+                        <label for="phone" class="block text-left text-lg font-medium mb-3 text-gray-200">Telefone</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="$celular" 
+                            pattern="\(\d{2}\) \d{4,5}-\d{4}" 
+                            inputmode="tel"
+                            maxlength="15"
+                            class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-100 placeholder-gray-400"
+                            placeholder="(DDD) XXXXX-XXXX"
+                            required
+                            oninput="
+                                let x = this.value.replace(/\D/g,'').slice(0,11);
+                                if(x.length > 6){
+                                    this.value = `(${x.slice(0,2)}) ${x.slice(2,7)}-${x.slice(7)}`;
+                                } else if(x.length > 2){
+                                    this.value = `(${x.slice(0,2)}) ${x.slice(2)}`;
+                                } else if(x.length > 0){
+                                    this.value = `(${x}`;
+                                }
+                            "
+                        >
+                    
+                    </div>
+                    <div>
+
+                        <label class="block text-left text-lg font-medium mb-3 text-gray-200">Serviço a prestar</label>
+                        
+                        <div class="flex flex-col space-y-3">
+                            
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="$servico" value="Desenvolvimento Web" required class="form-radio text-green-500">
+                                <span class="ml-2">Desenvolvimento Web</span>
+                            </label>
+                            
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="$servico" value="Desenvolvimento Desktop" required class="form-radio text-green-500">
+                                <span class="ml-2">Desenvolvimento Desktop</span>
+                            </label>
+
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="$servico" value="Segurança cibernética" required class="form-radio text-green-500">
+                                <span class="ml-2">Segurança cibernética</span>
+                            </label>
+
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="$servico" value="Avaliação e implantação de segurança em sistemas" required class="form-radio text-green-500">
+                                <span class="ml-2">Avaliação ou implantação de segurança em sistemas</span>
+                            </label>
+
+                        </div>
+                    </div>
+                    <div>
+
+                        <label for="mensagem" class="block text-left text-lg font-medium mb-3 text-gray-200">Observações</label>
+                        <textarea id="mensagem" name="$observacoes" rows="7" maxlength="150" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-100 placeholder-gray-400" placeholder="Escreva sua mensagem aqui..." required oninput="atualizarContador()"></textarea>
+                        
+                        <div class="text-right text-sm text-gray-400 mt-2">
+                            <span id="contador-mensagem">150</span> caracteres restantes
+                        </div>
+                    </div>
+
+                    <button 
+                        type="reset" 
+                        class="button-secondary text-xl font-bold w-full mt-2"
+                        onclick="document.getElementById('contador-mensagem').textContent = 150;"
+                    >
+                        Redefinir
+                    </button>
+                    <button type="submit" class="button-primary text-xl font-bold w-full">Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i></button>
+                    
+                    <input type="hidden" name="accessKey" value="f61c02e4-3f14-4dcf-b8ae-b9b98b3bdf8c">
+                    <input type="hidden" name="redirectTo" value="https://renanmestre.github.io/Carrinho/agradecimento.html">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-12 px-6 border-t border-gray-800">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left max-w-7xl">
+            <div class="mb-8 md:mb-0">
+                <p class="text-lg">&copy; 2025 Renan Mestre. Todos os direitos reservados.</p>
+                <p class="text-md text-gray-500 mt-2">Desenvolvido com <span class="text-blue-500">&hearts;</span> e paixão por tecnologia.</p>
+            </div>
+            <div class="flex flex-col items-center md:items-end space-y-4 md:space-y-0">
+                <p class="text-lg font-semibold mb-3">Conecte-se Comigo:</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/renan-mestre-468549275/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/RenanMestre" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://instagram.com/remestre_devsec" target="_blank" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:renanmestre2006@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
-  </section>
-  <!--/ Section Contact-footer End /-->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
-
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/counterup/jquery.waypoints.min.js"></script>
-  <script src="lib/counterup/jquery.counterup.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <script src="lib/typed/typed.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
+    <!-- Botão de Voltar ao Topo -->
+    <button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 z-40 hidden">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+    <script src="js/script.js"></script>
 </body>
 </html>

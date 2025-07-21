@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Artigo - Folha de Caderno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <style>
+        body {
+            background: #f3f3f3;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .notebook-page {
+            background: repeating-linear-gradient(
+                to bottom,
+                #fff 0px,
+                #fff 34px,
+                #d1d5db 35px
+            );
+            border: 2px solid #b6b6b6;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.10);
+            width: 100%;
+            max-width: 700px;
+            min-height: 90vh;
+            margin: 40px 0;
+            padding: 48px 36px 48px 64px;
+            position: relative;
+        }
+        /* Margem vermelha do caderno */
+        .notebook-page::before {
+            content: "";
+            position: absolute;
+            left: 44px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ef4444;
+            opacity: 0.6;
+        }
+        /* Efeito de furos do caderno */
+        .notebook-page::after {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 32px;
+            width: 10px;
+            height: calc(100% - 64px);
+            background:
+                radial-gradient(circle, #b6b6b6 3px, transparent 4px) 0 0/100% 40px repeat-y;
+            opacity: 0.5;
+        }
+        h1, h2, h3 {
+            font-weight: bold;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.2rem;
+            color: #10b981;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #059669;
+        }
+        h3 {
+            font-size: 1.1rem;
+            color: #374151;
+        }
+        p, ul, ol {
+            font-size: 1.05rem;
+            line-height: 2.1;
+            margin: 0 0 1.2em 0;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+        }
+        a {
+            color: #10b981;
+            text-decoration: underline;
+        }
+        @media (max-width: 800px) {
+            .notebook-page {
+                max-width: 98vw;
+                padding: 32px 10px 32px 36px;
+            }
+            .notebook-page::before {
+                left: 22px;
+            }
+            .notebook-page::after {
+                left: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-page">
+        <h1>Título do Artigo</h1>
+        <h2>Subtítulo ou Introdução</h2>
+        <p>
+            Escreva seu artigo aqui! O visual simula uma folha de caderno, com linhas, margem vermelha e furos na lateral.
+        </p>
+        <h3>Seção de Exemplo</h3>
+        <ul>
+            <li>Item de lista 1</li>
+            <li>Item de lista 2</li>
+        </ul>
+        <p>
+            Continue escrevendo seu conteúdo normalmente. Links, listas e títulos já estão estilizados.
+        </p>
+    </div>
+</body>
+</html>
